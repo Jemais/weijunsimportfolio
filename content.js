@@ -21,25 +21,22 @@ window.PORTFOLIO = {
 
 
   // ---------- SECTION 2: SOFTWARE ----------
-  // abbr = the short label on the tile. color = tile colour.
-  // icon = optional image instead of the label, e.g. "images/unity.png"
+  // icon = the picture's path in the images folder. File names must match
+  // exactly (capitals and .png/.jpg/.webp included). If a picture is
+  // missing, the tile shows the short abbr label in the colour instead.
+  // group = small heading above a row of tiles ("" for no heading).
   tools: [
-    { group: "Engines & code", items: [
-      { name: "Unity",         abbr: "U",  color: "#2f5bff", icon: "" },
-      { name: "Unreal Engine", abbr: "UE", color: "#15172d", icon: "" },
-      { name: "C#",            abbr: "C#", color: "#8a6cff", icon: "" },
-    ]},
-    { group: "Art & 3D", items: [
-      { name: "Blender",       abbr: "Bl", color: "#ff8a3d", icon: "" },
-      { name: "Photoshop",     abbr: "Ps", color: "#2f5bff", icon: "" },
-      { name: "Aseprite",      abbr: "As", color: "#ff5d5d", icon: "" },
-      { name: "Illustrator",   abbr: "Ai", color: "#e0a100", icon: "" },
-    ]},
-    { group: "Design & planning", items: [
-      { name: "Figma",         abbr: "Fi", color: "#ff5d5d", icon: "" },
-      { name: "Miro",          abbr: "Mi", color: "#e0a100", icon: "" },
-      { name: "Trello",        abbr: "Tr", color: "#2f5bff", icon: "" },
-      { name: "Notion",        abbr: "No", color: "#15172d", icon: "" },
+    { group: "", items: [
+      { name: "Unity",                abbr: "U",  color: "#15172d", icon: "images/unity.png" },
+      { name: "Adobe XD",             abbr: "Xd", color: "#470137", icon: "images/adobexd.png" },
+      { name: "Adobe Illustrator",    abbr: "Ai", color: "#330000", icon: "images/adobeillustrator.png" },
+      { name: "Adobe Photoshop",      abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png" },
+      { name: "Adobe Premiere",       abbr: "Pr", color: "#00005b", icon: "images/adobepremiere.webp" },
+      { name: "Adobe After Effects",  abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
+      { name: "Aseprite",             abbr: "As", color: "#7d929e", icon: "images/aseprite.png" },
+      { name: "Autodesk Maya",        abbr: "M",  color: "#1ba6a6", icon: "images/maya.png" },
+      { name: "Blender",              abbr: "Bl", color: "#e87d0d", icon: "images/blender.webp" },
+      { name: "Figma",                abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
     ]},
   ],
 
