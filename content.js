@@ -34,7 +34,7 @@ window.PORTFOLIO = {
     ]},
     { group: "2D art", items: [
       { name: "Adobe Photoshop",     abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png" },
-      { name: "Adobe Illustrator",   abbr: "Ai", color: "#330000", icon: "images/adobeillustrator.png" },
+      { name: "Adobe Illustrator",   abbr: "Ai", color: "#330000", icon: "images/illustrator.png" },
       { name: "Aseprite",            abbr: "As", color: "#7d929e", icon: "images/aseprite.png" },
     ]},
     { group: "3D art", items: [
