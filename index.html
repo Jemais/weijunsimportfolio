@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE  occasion: playful but tidy, a portfolio people skim in a minute
+   IDEA   a game's menu: player card, inventory of tools, quest log, level select
+   PICTURE the player card (profile photo slot) on a cobalt field of floating game shapes
+   COLOUR white ground, cobalt lead, sunshine yellow support, coral accent, mint for tags
+   TYPE   Fredoka (rounded display) + Nunito (text)
+   LAYOUT laptop: card left, intro + stats right; toolkit two columns; games 3-up grid. phone: all stacked */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0f1226);
+--ink:light-dark(#15172d,#eef0ff);
+--mute:light-dark(#5a5f7d,#a9aed0);
+--soft:light-dark(#f2f4ff,#181c3a);
+--line:light-dark(#dde2f6,#2b305a);
+--card:light-dark(#ffffff,#1b1f40);
+--blue:light-dark(#2f5bff,#3653d9);
+--blue-deep:light-dark(#1e3fd1,#24399f);
+--sun:#ffd23f;--coral:#ff5d5d;--mint:#2ec4a6;--grape:#8a6cff}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:Fredoka,Nunito,sans-serif;line-height:1.05;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,48px)}
+h3{font-size:22px}
+.band{padding-block:clamp(40px,6vw,88px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.lede{color:var(--mute);font-size:17px;max-width:60ch;margin:10px 0 0}
+.sample{font-size:13px;color:var(--mute);margin:14px 0 0}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap;padding:12px max(5vw,16px)}
+.logo{font:700 20px Fredoka,sans-serif;text-decoration:none;display:flex;align-items:center;gap:10px;margin-right:auto}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--coral);display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;box-shadow:3px 3px 0 var(--sun)}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{display:block;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:700}
+nav ul a:hover,nav ul a:focus-visible{background:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:999px;font-weight:800;text-decoration:none;border:2px solid transparent;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.sun{background:var(--sun);color:#15172d;box-shadow:0 4px 0 #d9a800}
+.btn.ghost{border-color:currentColor}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+/* hero / about */
+.hero{position:relative;background:var(--blue);color:#fff;overflow:hidden}
+.hero>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:center}
+.pcard{background:#fff;color:#15172d;border-radius:24px;padding:14px 14px 18px;box-shadow:10px 10px 0 var(--sun);transform:rotate(-2.5deg);max-width:400px;justify-self:center;width:100%}
+.photo{aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#ffe58a,#ffb3a6);position:relative;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .ph{display:grid;justify-items:center;gap:6px;color:#7a4a3a;font-weight:800;font-size:14px}
+.photo .ph svg{width:46%;height:auto}
+.pcard .meta{display:flex;justify-content:space-between;align-items:end;gap:10px;padding:14px 6px 0}
+.pcard .meta b{font:700 22px Fredoka,sans-serif;display:block}
+.pcard .meta span{color:#5a5f7d;font-size:14px}
+.pcard .hp{display:flex;gap:4px}
+.pcard .hp i{width:14px;height:14px;border-radius:4px;background:var(--coral)}
+.pcard .hp i:last-child{background:#e3e6f3}
+.hero h1{font-size:clamp(44px,7vw,84px)}
+.hero h1 .hi{display:block;font-size:.42em;font-weight:600;opacity:.85;margin-bottom:10px}
+.hero p.bio{font-size:18px;max-width:56ch;margin:18px 0 0;color:#e8ecff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10em,1fr));gap:10px;margin:26px 0 0;padding:0;list-style:none}
+.stats li{background:var(--blue-deep);border-radius:16px;padding:12px 16px}
+.stats small{display:block;color:#b9c6ff;font-size:13px;font-weight:700}
+.stats strong{font:600 18px Fredoka,sans-serif}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* toolkit */
+.tk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);margin-top:36px}
+.panel{background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,2.4vw,28px)}
+.panel h3{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.panel h3 i{width:12px;height:12px;border-radius:3px;background:var(--coral);transform:rotate(45deg)}
+.group{margin-top:18px}
+.group>p{margin:0 0 10px;font-weight:800;font-size:14px;color:var(--mute)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:12px}
+.slot{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 6px 10px;display:grid;justify-items:center;gap:8px;text-align:center;transition:transform .15s,border-color .15s}
+.slot:hover{transform:translateY(-3px);border-color:var(--c)}
+.ico{width:48px;height:48px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;font:700 18px Fredoka,sans-serif;box-shadow:inset 0 -4px 0 rgb(0 0 0/.18)}
+.ico img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.slot span{font-size:13px;font-weight:700;line-height:1.25}
+.quests{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+.quest{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px}
+.quest .badge{grid-row:span 3;width:44px;height:44px;border-radius:50%;background:var(--c);display:grid;place-items:center;color:#fff}
+.quest .badge svg{width:22px;height:22px}
+.quest .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.quest b{font:600 18px Fredoka,sans-serif}
+.quest time{font-size:13px;font-weight:800;color:var(--mute);white-space:nowrap}
+.quest .org{font-weight:700;font-size:14px;color:var(--blue)}
+.quest p{margin:2px 0 0;color:var(--mute);font-size:15px}
+
+/* games */
+.games{background:var(--soft);border-top:1px solid var(--line)}
+.ghead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:800 15px Nunito,sans-serif;min-height:44px;padding:8px 18px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:22px;margin-top:30px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.gcard:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:8px 8px 0 var(--c)}
+.thumb{aspect-ratio:16/10;position:relative;background:var(--c);overflow:hidden}
+.thumb svg,.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb .kind{position:absolute;left:12px;top:12px;background:#fff;color:#15172d;font-size:13px;font-weight:800;padding:4px 12px;border-radius:999px}
+.gbody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.gbody .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.gbody time{font-size:13px;font-weight:800;color:var(--mute);white-space:nowrap}
+.gbody p{margin:0;color:var(--mute);font-size:15px}
+.role{font-size:14px;font-weight:700}
+.role em{font-style:normal;color:var(--mute);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font-size:13px;font-weight:700;padding:3px 10px;border-radius:8px;background:color-mix(in srgb,var(--mint) 18%,transparent);color:light-dark(#0f6e5c,#7fe6d1)}
+.links{display:flex;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:12px}
+.links a{font-weight:800;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+.links a:hover{text-decoration:underline}
+.empty{display:none;padding:40px;text-align:center;color:var(--mute)}
+
+/* contact */
+.contact{background:var(--coral);color:#fff}
+.contact .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.contact h2{color:#fff}
+.contact p{margin:8px 0 0;font-size:18px}
+.contact .mail{font-weight:800;font-size:18px;overflow-wrap:anywhere}
+footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:860px){.tk{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:720px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.pcard{max-width:320px}nav ul a{padding:10px 10px}}
+@media(max-width:480px){nav .cta-nav{display:none}.hero p.bio{font-size:17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.float{animation:none!important}}
+.float{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#about"><i data-k="initial"></i><span data-k="name"></span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#games">Games</a></li>
+      <li class="cta-nav"><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- All text, images and links come from content.js -->
+
+<!-- ============ SECTION 1: ABOUT ME ============ -->
+<header class="hero band" id="about">
+  <svg id="sky" aria-hidden="true"></svg>
+  <div class="wrap">
+    <figure class="pcard float" style="margin:0">
+      <div class="photo" id="photo"></div>
+      <figcaption class="meta">
+        <div><b data-k="name"></b><span id="cls"></span></div>
+        <div class="hp" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </figcaption>
+    </figure>
+    <div>
+      <h1><span class="hi" data-k="greeting"></span><span data-k="headline"></span></h1>
+      <p class="bio" data-k="bio"></p>
+      <ul class="stats" id="stats"></ul>
+      <div class="cta">
+        <a class="btn sun" href="#games">See my games</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+      <p class="sample" id="sampleNote" style="color:#c9d4ff"></p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SECTION 2: TOOLKIT + EXPERIENCE ============ -->
+<section class="band" id="toolkit">
+  <div class="wrap">
+    <h2>Toolkit &amp; experience</h2>
+    <p class="lede">The software I work in, and the teams and projects I've helped lead.</p>
+    <div class="tk">
+      <div class="panel">
+        <h3><i></i>Software inventory</h3>
+        <div id="tools"></div>
+      </div>
+      <div class="panel">
+        <h3><i></i>Leadership &amp; projects</h3>
+        <ol class="quests" id="quests"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: GAMES & PROJECTS ============ -->
+<section class="band games" id="games">
+  <div class="wrap">
+    <div class="ghead">
+      <div>
+        <h2>Games &amp; projects</h2>
+        <p class="lede">Pick a level. Each card links to a playable build or a short breakdown.</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter projects"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty">Nothing in this category yet.</p>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2 data-k="contactTitle"></h2>
+      <p data-k="contactText"></p>
+    </div>
+    <div class="cta" id="contactLinks" style="margin:0"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span id="copy"></span><a href="#about">Back to top</a></div></footer>
+
+<script src="content.js"></script>
+<script>
+{
+const C = window.PORTFOLIO;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+if (!C) {
+  document.body.insertAdjacentHTML('afterbegin', '<p style="background:#ff5d5d;color:#fff;margin:0;padding:14px 16px;font-weight:800">content.js could not be read. Check it for a missing quote mark or comma near your last edit.</p>');
+} else {
+
+// simple text fields
+document.querySelectorAll('[data-k]').forEach(el => { el.textContent = C[el.dataset.k] ?? ''; });
+document.title = `${C.name} · Game Design Portfolio`;
+$('#cls').textContent = `Class: ${C.title}`;
+$('#sampleNote').textContent = C.sampleNote || '';
+$('#copy').textContent = `© ${new Date().getFullYear()} ${C.name}`;
+
+// profile photo
+$('#photo').innerHTML = C.photo
+  ? `<img src="${esc(C.photo)}" alt="Portrait of ${esc(C.name)}">`
+  : `<div class="ph"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="36" r="20" fill="#fff" opacity=".85"/><path d="M14 96c4-22 18-34 36-34s32 12 36 34z" fill="#fff" opacity=".85"/></svg>Your photo here</div>`;
+
+// stats
+$('#stats').innerHTML = (C.stats || []).map(s => `<li><small>${esc(s.label)}</small><strong>${esc(s.value)}</strong></li>`).join('');
+
+// tools
+$('#tools').innerHTML = (C.tools || []).map(g => `<div class="group"><p>${esc(g.group)}</p><div class="slots">${
+  (g.items || []).map(t => `<div class="slot" style="--c:${esc(t.color)}"><div class="ico">${t.icon ? `<img src="${esc(t.icon)}" alt="">` : esc(t.abbr)}</div><span>${esc(t.name)}</span></div>`).join('')
+}</div></div>`).join('');
+
+// experience
+const ICONS = {
+  flag:'<path d="M6 21V4m0 0h11l-2 4 2 4H6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>',
+  bolt:'<path d="M13 2 5 14h6l-1 8 8-12h-6z" fill="#fff"/>',
+  team:'<circle cx="8" cy="8" r="3.2" fill="#fff"/><circle cx="16.5" cy="9" r="2.6" fill="#fff"/><path d="M2 20c.5-4 3-6 6-6s5.5 2 6 6zM13.5 20c.3-2.5 1-4 3-4.6 2.6.2 4.6 1.8 5 4.6z" fill="#fff"/>',
+  star:'<path d="m12 2 3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z" fill="#fff"/>'
+};
+$('#quests').innerHTML = (C.experience || []).map(q => `<li class="quest" style="--c:${esc(q.color)}">
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[q.icon] || ICONS.star}</svg></div>
+  <div class="top"><b>${esc(q.title)}</b><time>${esc(q.time)}</time></div>
+  <div class="org">${esc(q.org)}</div>
+  <p>${esc(q.text)}</p></li>`).join('');
+
+// placeholder thumbnail art: seeded shapes and a controller on the card colour
+const thumbArt = (seed, c) => {
+  let s = seed * 9973 + 7;
+  const r = () => (s = s * 16807 % 2147483647) / 2147483647;
+  let out = '';
+  for (let i = 0; i < 9; i++) {
+    const x = r() * 320, y = r() * 200, z = 10 + r() * 26, k = Math.floor(r() * 3), o = (.18 + r() * .3).toFixed(2);
+    out += k === 0 ? `<circle cx="${x}" cy="${y}" r="${z}" fill="#fff" opacity="${o}"/>`
+      : k === 1 ? `<rect x="${x}" y="${y}" width="${z * 1.6}" height="${z * 1.6}" rx="6" fill="#fff" opacity="${o}" transform="rotate(${r() * 40} ${x} ${y})"/>`
+      : `<path d="M${x} ${y - z}l${z} ${z * 1.7}h${-z * 2}z" fill="#fff" opacity="${o}"/>`;
+  }
+  return `<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="g${seed}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="${c}" stop-opacity=".7"/></linearGradient></defs>
+    <rect width="320" height="200" fill="url(#g${seed})"/>${out}
+    <g transform="translate(160 104)"><rect x="-42" y="-24" width="84" height="48" rx="24" fill="#fff" opacity=".95"/>
+    <path d="M-24 -1h6v-6h2v6h6v2h-6v6h-2v-6h-6z" fill="${c}"/>
+    <circle cx="18" cy="-5" r="4.5" fill="${c}"/><circle cx="27" cy="3" r="4.5" fill="${c}"/></g></svg>`;
+};
+
+// games + filters
+const GAMES = C.games || [], FILTERS = C.filters || ['All'];
+let filter = 'All';
+const link = (url, label) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${label} →</a>` : '';
+const draw = () => {
+  const list = GAMES.filter(g => filter === 'All' || g.type === filter);
+  $('#grid').innerHTML = list.map(g => {
+    const links = link(g.play, 'Play build') + link(g.breakdown, 'Breakdown');
+    return `<article class="gcard" style="--c:${esc(g.color)}">
+    <div class="thumb">${g.image ? `<img src="${esc(g.image)}" alt="Screenshot of ${esc(g.title)}" loading="lazy">` : thumbArt(GAMES.indexOf(g) + 1, esc(g.color))}<span class="kind">${esc(g.type)}</span></div>
+    <div class="gbody">
+      <div class="row"><h3>${esc(g.title)}</h3><time>${esc(g.year)}</time></div>
+      <p>${esc(g.pitch)}</p>
+      <div class="role">${esc(g.role)}${g.team ? ` <em>· ${esc(g.team)}</em>` : ''}</div>
+      <div class="tags">${(g.tags || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
+      ${links ? `<div class="links">${links}</div>` : ''}
+    </div></article>`;
+  }).join('');
+  $('#empty').style.display = list.length ? 'none' : 'block';
+  $('#chips').innerHTML = FILTERS.map((f, i) => `<button class="chip" type="button" id="filter-${i}" aria-pressed="${f === filter}">${esc(f)}</button>`).join('');
+};
+$('#chips').addEventListener('click', e => {
+  const b = e.target.closest('.chip');
+  if (b) { filter = FILTERS[+b.id.split('-')[1]]; draw(); }
+});
+draw();
+
+// contact
+$('#contactLinks').innerHTML = `<span class="btn sun mail">${esc(C.email)}</span>` +
+  (C.links || []).map(l => `<a class="btn ghost" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('');
+}
+
+// hero background: floating game shapes sized to the band
+const sky = $('#sky');
+const drawSky = () => {
+  const W = sky.clientWidth, H = sky.clientHeight;
+  let s = 42;
+  const r = () => (s = s * 16807 % 2147483647) / 2147483647;
+  const cols = ['#ffd23f', '#ff5d5d', '#2ec4a6', '#ffffff'];
+  const n = Math.round(W * H / 26000);
+  let out = '';
+  for (let i = 0; i < n; i++) {
+    const x = r() * W, y = r() * H, z = 6 + r() * 16, c = cols[Math.floor(r() * 4)], k = Math.floor(r() * 4), o = (.14 + r() * .22).toFixed(2);
+    if (k === 0) out += `<circle cx="${x}" cy="${y}" r="${z}" fill="none" stroke="${c}" stroke-width="3" opacity="${o}"/>`;
+    else if (k === 1) out += `<rect x="${x}" y="${y}" width="${z * 1.5}" height="${z * 1.5}" rx="4" fill="${c}" opacity="${o}" transform="rotate(${r() * 45} ${x} ${y})"/>`;
+    else if (k === 2) out += `<path d="M${x - z} ${y - z / 3}h${z * 2 / 3}v${-z * 2 / 3}h${z * 2 / 3}v${z * 2 / 3}h${z * 2 / 3}v${z * 2 / 3}h${-z * 2 / 3}v${z * 2 / 3}h${-z * 2 / 3}v${-z * 2 / 3}h${-z * 2 / 3}z" fill="${c}" opacity="${o}"/>`;
+    else out += `<path d="M${x} ${y - z}l${z} ${z * 1.7}h${-z * 2}z" fill="none" stroke="${c}" stroke-width="3" stroke-linejoin="round" opacity="${o}"/>`;
+  }
+  sky.innerHTML = out;
+};
+const skyObs = new ResizeObserver(drawSky);
+skyObs.observe(sky);
+}
+</script>
+</body>
+</html>
