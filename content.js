@@ -18,17 +18,17 @@
 window.PORTFOLIO = {
 
   // ---------- SECTION 1: ABOUT ME ----------
-  name: "Wei Jun Sim",
+  name: "Sim Wei Jun",
   initial: "W",                       // letter in the little logo, top left
-  title: "Game designer",             // shown on your profile card
+  title: "Game Designer",             // shown on your profile card
   photo: "",                          // e.g. "images/me.jpg"
   greeting: "Hi, I'm Wei Jun.",
-  headline: "I design games people want to play again.",
-  bio: "I'm a game designer who loves building systems that feel good in the hand: tight controls, readable levels and small surprises. I prototype fast, playtest often and enjoy leading small teams from first sketch to shipped build.",
+  headline: "I turn dreams into reality with design",
+  bio: "Trained at DigiPen Institute of Technology Singapore, I am a versatile game and UX designer who thrives at the intersection of creativity and execution. I contribute across mechanics design, progression systems, UI/UX refinement, and production ensuring that ambitious ideas are not only innovative, but achievable. I am often relied upon as both a designer and a producer: structuring projects, aligning teams, and carrying concepts from early prototypes to polished builds. My strength lies in clarity, defining the core of a game and building around it with intention. I believe great games are not accidents. They are the result of thoughtful systems, deliberate iteration, and teams that execute with purpose.",
 
   // Three (or more) quick facts under your bio
   stats: [
-    { label: "Focus",     value: "Systems & level design" },
+    { label: "Focus",     value: "Systems & Game Mechanics" },
     { label: "Based in",  value: "Singapore" },
     { label: "Currently", value: "Open to internships" },
   ],
@@ -44,7 +44,6 @@ window.PORTFOLIO = {
     { group: "Engines & code", items: [
       { name: "Unity",         abbr: "U",  color: "#2f5bff", icon: "" },
       { name: "Unreal Engine", abbr: "UE", color: "#15172d", icon: "" },
-      { name: "Godot",         abbr: "Gd", color: "#2ec4a6", icon: "" },
       { name: "C#",            abbr: "C#", color: "#8a6cff", icon: "" },
     ]},
     { group: "Art & 3D", items: [
