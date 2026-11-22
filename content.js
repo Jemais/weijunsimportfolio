@@ -88,53 +88,120 @@ window.PORTFOLIO = {
 
 
   // ---------- SECTION 3: GAMES & PROJECTS ----------
-  // The filter buttons. Each game's "type" must match one of these
+  // The filter buttons. Each project's "type" must match one of these
   // (except "All", which shows everything).
-  filters: ["All", "Games", "Prototypes", "Level design"],
+  filters: ["All", "Video games", "Tabletop", "Game jams", "UI/UX"],
 
-  // image = screenshot path, e.g. "images/lantern-drift.png"
-  // play / breakdown = links. Leave "" to hide that link.
+  // category = label on the picture. image = screenshot path, e.g.
+  // "images/halt-the-horde.png" ("" shows the coloured placeholder).
+  // contributions = the "What I did" list (leave [] to hide it).
+  // links = buttons on the card. A link with url "" is hidden, so you
+  // can fill in the url later and it appears.
   games: [
-    { title: "Lantern Drift", type: "Games", year: "2026", color: "#2f5bff",
-      role: "Lead designer", team: "team of 6",
-      pitch: "A cosy river-delivery game about guiding paper boats through changing weather.",
-      tags: ["Unity", "Puzzle", "Co-op"],
-      image: "", play: "#", breakdown: "#" },
-    { title: "Byte Knights", type: "Games", year: "2025", color: "#ff5d5d",
-      role: "Systems designer", team: "game jam",
-      pitch: "A one-button roguelite where every enemy you defeat rewires your controls.",
-      tags: ["Godot", "Roguelite", "Jam"],
-      image: "", play: "#", breakdown: "#" },
-    { title: "Gravity Garden", type: "Prototypes", year: "2025", color: "#2ec4a6",
-      role: "Solo", team: "2-week prototype",
-      pitch: "Plant seeds that bend gravity, then use them to reach floating islands.",
-      tags: ["Unity", "Physics", "Prototype"],
-      image: "", play: "#", breakdown: "#" },
-    { title: "Night Market", type: "Level design", year: "2024", color: "#8a6cff",
-      role: "Level designer", team: "portfolio piece",
-      pitch: "A stealth level set in a crowded night market, built around sightlines and noise.",
-      tags: ["Unreal", "Stealth", "Blockout"],
-      image: "", play: "", breakdown: "#" },
-    { title: "Card Kitchen", type: "Prototypes", year: "2024", color: "#ff8a3d",
-      role: "Designer", team: "paper prototype",
-      pitch: "A deck-building cooking game tested with paper cards before going digital.",
-      tags: ["Tabletop", "Deckbuilder"],
-      image: "", play: "", breakdown: "#" },
-    { title: "Skyline Sprint", type: "Level design", year: "2024", color: "#e0a100",
-      role: "Level designer", team: "class project",
-      pitch: "Three rooftop parkour courses tuned for flow, speedrun routes and first-time players.",
-      tags: ["Unreal", "Platformer"],
-      image: "", play: "#", breakdown: "#" },
+    { title: "Halt the Horde", type: "Video games", category: "Mobile game", color: "#ff5d5d",
+      role: "Project Manager & Lead Game Designer", team: "Team of 2",
+      pitch: "A base-defense mobile game combining match-3 mechanics with strategic combat. Match pieces to launch projectiles, defend against waves of enemies, and progress through 10 increasingly challenging levels.",
+      tags: ["Mobile", "Match-3", "Tower Defense"],
+      contributions: [
+        "Managed production and project scheduling.",
+        "Designed gameplay mechanics, progression, and balancing.",
+        "Created 2D and 3D art assets.",
+        "Produced sound effects and edited promotional videos.",
+        "Developed gameplay supporting different player strategies.",
+      ],
+      detail: "",
+      image: "",
+      links: [
+        { label: "Watch trailer", url: "https://www.youtube.com/shorts/1cNqKZaaIT8" },
+        { label: "Project breakdown", url: "" },
+      ]},
+
+    { title: "Order N Chaos", type: "Video games", category: "Multiplayer game", color: "#8a6cff",
+      role: "Product Manager & Lead Game Designer", team: "Team of 9",
+      pitch: "A fantasy tactics game inspired by Battleship, where players secretly plan spells and resolve attacks simultaneously. Strategic positioning, prediction, and magical abilities determine the outcome.",
+      tags: ["Multiplayer", "Strategy", "Lua"],
+      contributions: [
+        "Managed a nine-person development team.",
+        "Designed core gameplay mechanics and systems.",
+        "Created visual concepts and communicated artistic direction.",
+        "Assisted with Lua gameplay programming.",
+        "Developed visual effects, interactions, and audio assets.",
+      ],
+      detail: "",
+      image: "",
+      links: [
+        { label: "Play demo", url: "" },
+        { label: "Project breakdown", url: "" },
+      ]},
+
+    { title: "Possessor", type: "Video games", category: "Puzzle adventure", color: "#2f5bff",
+      role: "Game Project", team: "",
+      pitch: "A top-down puzzle adventure where a disembodied spirit possesses household objects to navigate a warped home, solve environmental puzzles, and uncover forgotten memories.",
+      tags: ["Puzzle", "Adventure", "Narrative"],
+      // Notes for the breakdown (not shown on the site): focus on the
+      // object-possession mechanic; environmental puzzle design and player
+      // progression; how gameplay supports the narrative and exploration.
+      contributions: [],
+      detail: "",
+      image: "",
+      links: [
+        { label: "Play demo", url: "" },
+        { label: "Project breakdown", url: "" },
+      ]},
+
+    { title: "Paws to Pet", type: "Tabletop", category: "Board game", color: "#ff8a3d",
+      role: "Game Designer & 2D Artist", team: "",
+      pitch: "A competitive deck-building board game for 2–5 players, where aspiring cat tamers gather resources, collect adorable cats, and compete to build the ultimate collection.",
+      tags: ["Tabletop", "Deck Building", "Strategy"],
+      contributions: [
+        "Designed and balanced game mechanics.",
+        "Created the board game's box design.",
+        "Illustrated 15 of the game's 60 collectible cats.",
+        "Developed strategic choices around resource collection and deck building.",
+      ],
+      detail: "",
+      image: "",
+      links: [
+        { label: "Project breakdown", url: "" },
+      ]},
+
+    { title: "Riskcuit", type: "Game jams", category: "Game jam", color: "#e0a100",
+      role: "Game Jam Participant", team: "",
+      pitch: "A social deduction game where you play a seemingly innocent cookie baker secretly poisoning villagers. Balance risk and deception as you try to eliminate the village without being exposed.",
+      tags: ["Social Deduction", "Deception", "Game Jam"],
+      contributions: [],
+      detail: "Created for Brackeys Game Jam 2025.2, themed \u201cRisk it for the Biscuit.\u201d",
+      image: "",
+      links: [
+        { label: "Play game", url: "https://saka0na.itch.io/riskcuit" },
+        { label: "Project breakdown", url: "" },
+      ]},
+
+    { title: "Cloudy Stack", type: "UI/UX", category: "Mobile app · UI/UX", color: "#2ec4a6",
+      role: "UI/UX Designer", team: "",
+      pitch: "A modern mobile ordering app designed for a fictional pancake restaurant, combining stylish UI/UX with intuitive navigation, menu exploration, promotional offers, and a streamlined ordering experience.",
+      tags: ["Mobile App", "UI/UX", "Figma"],
+      contributions: [
+        "Designed a modern, visually appealing mobile interface targeting younger audiences.",
+        "Created interactive pages and navigation flows for a cohesive user experience.",
+        "Designed menu browsing, promotional offers, and food ordering interfaces.",
+        "Focused on usability and intuitive interactions to simplify the customer ordering journey.",
+      ],
+      detail: "",
+      image: "",
+      links: [
+        { label: "Interactive prototype", url: "" },
+        { label: "Project breakdown", url: "" },
+      ]},
   ],
 
 
   // ---------- CONTACT ----------
   contactTitle: "Let's make something fun",
   contactText: "Open to internships, game jams and collaborations.",
-  email: "you@example.com",
+  email: "simweijun00@gmail.com",
   links: [
     { label: "itch.io",    url: "https://itch.io" },
-    { label: "LinkedIn",   url: "https://www.linkedin.com" },
-    { label: "ArtStation", url: "https://www.artstation.com" },
+    { label: "LinkedIn",   url: "https://www.linkedin.com/in/wei-jun-sim-179268194/" },
   ],
 };
