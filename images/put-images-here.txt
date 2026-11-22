@@ -1,0 +1,1 @@
+Put your pictures in this folder, then reference them in content.js, e.g. images/me.jpg
