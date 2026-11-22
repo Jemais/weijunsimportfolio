@@ -1,20 +1,3 @@
-/* =====================================================================
-   YOUR PORTFOLIO CONTENT
-   ---------------------------------------------------------------------
-   This is the only file you need to edit. Change the text between the
-   quote marks, save (on GitHub: "Commit changes"), and your site
-   updates in 1-2 minutes.
-
-   Tips
-   - Keep the quote marks and the commas at the end of each line.
-   - To use an apostrophe inside text, keep the text in "double quotes",
-     e.g.  bio: "I'm a designer",
-   - Images: upload them into the  images  folder, then write the path,
-     e.g.  photo: "images/me.jpg",   Leave "" to show the placeholder.
-   - To add a game, copy one { ... }, block in the games list, paste it
-     below the last one, and change the details.
-   ===================================================================== */
-
 window.PORTFOLIO = {
 
   // ---------- SECTION 1: ABOUT ME ----------
@@ -24,7 +7,7 @@ window.PORTFOLIO = {
   photo: "",                          // e.g. "images/me.jpg"
   greeting: "Hi, I'm Wei Jun.",
   headline: "I turn dreams into reality with design",
-  bio: "Trained at DigiPen Institute of Technology Singapore, I am a versatile game and UX designer who thrives at the intersection of creativity and execution. I contribute across mechanics design, progression systems, UI/UX refinement, and production ensuring that ambitious ideas are not only innovative, but achievable. I am often relied upon as both a designer and a producer: structuring projects, aligning teams, and carrying concepts from early prototypes to polished builds. My strength lies in clarity, defining the core of a game and building around it with intention. I believe great games are not accidents. They are the result of thoughtful systems, deliberate iteration, and teams that execute with purpose.",
+  bio: "Trained at DigiPen Institute of Technology Singapore, I am a versatile game and UX designer who enjoys wearing multiple hats. While my core strengths lie in game design and project management, I am equally comfortable in various disciplines of art, programming, design and music. I thrive on bridging creativity and execution, turning ambitious ideas into achievable, polished experiences through thoughtful design and iteration.",
 
   // Three (or more) quick facts under your bio
   stats: [
