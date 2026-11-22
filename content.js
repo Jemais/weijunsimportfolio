@@ -205,7 +205,6 @@ window.PORTFOLIO = {
   contactText: "Open to internships, game jams and collaborations.",
   email: "simweijun00@gmail.com",
   links: [
-    { label: "itch.io",    url: "https://itch.io" },
     { label: "LinkedIn",   url: "https://www.linkedin.com/in/wei-jun-sim-179268194/" },
   ],
 };
