@@ -28,6 +28,7 @@ window.PORTFOLIO = {
   tools: [
     { group: "Game development", items: [
       { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png" },
+      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unrealengine.png" },
     ]},
     { group: "UI/UX design", items: [
       { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
@@ -133,12 +134,12 @@ window.PORTFOLIO = {
       detail: "",
       image: "images/OrderNChaos.png", fit: "cover",
       links: [
-        { label: "Play demo", url: "" },
+        { label: "Play demo", url: "https://tanukifurhire.com/" },
         { label: "Project breakdown", url: "" },
       ]},
 
     { title: "Possessor", type: "Video games", category: "Puzzle adventure", color: "#2f5bff",
-      role: "Game Project", team: "",
+      role: "Game Project", team: "Team of 5",
       pitch: "A top-down puzzle adventure where a disembodied spirit possesses household objects to navigate a warped home, solve environmental puzzles, and uncover forgotten memories.",
       tags: ["Puzzle", "Adventure", "Narrative"],
       // Notes for the breakdown (not shown on the site): focus on the
@@ -153,7 +154,7 @@ window.PORTFOLIO = {
       ]},
 
     { title: "Paws to Pet", type: "Tabletop", category: "Board game", color: "#ff8a3d",
-      role: "Game Designer & 2D Artist", team: "",
+      role: "Game Designer & 2D Artist", team: "Team of 4",
       pitch: "A competitive deck-building board game for 2–5 players, where aspiring cat tamers gather resources, collect adorable cats, and compete to build the ultimate collection.",
       tags: ["Tabletop", "Deck Building", "Strategy"],
       contributions: [
@@ -169,7 +170,7 @@ window.PORTFOLIO = {
       ]},
 
     { title: "Riskcuit", type: "Game jams", category: "Game jam", color: "#e0a100",
-      role: "Game Jam Participant", team: "",
+      role: "Game Jam Participant", team: "Team of 5",
       pitch: "A social deduction game where you play a seemingly innocent cookie baker secretly poisoning villagers. Balance risk and deception as you try to eliminate the village without being exposed.",
       tags: ["Social Deduction", "Deception", "Game Jam"],
       contributions: [],
