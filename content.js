@@ -4,7 +4,8 @@ window.PORTFOLIO = {
   name: "Sim Wei Jun",
   initial: "W",                       // letter in the little logo, top left
   title: "Game Designer",             // shown on your profile card
-  photo: "",                          // e.g. "images/me.jpg"
+  photo: "images/profilephoto.png",
+  photoPosition: "58% 35%",          // which part of the photo stays in view (left-right, top-bottom)
   greeting: "Hi, I'm Wei Jun.",
   headline: "I turn dreams into reality with design",
   bio: "Trained at DigiPen Institute of Technology Singapore, I am a versatile game and UX designer who enjoys wearing multiple hats. While my core strengths lie in game design and project management, I am equally comfortable in various disciplines of art, programming, design and music. I thrive on bridging creativity and execution, turning ambitious ideas into achievable, polished experiences through thoughtful design and iteration.",
@@ -46,8 +47,8 @@ window.PORTFOLIO = {
       { name: "Adobe After Effects", abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
     ]},
     { group: "Audio", items: [
-      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "images/ableton.png" },
-      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "images/audacity.png" },
+      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "ableton.png" },
+      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "audacity.png" },
     ]},
   ],
 
@@ -93,7 +94,9 @@ window.PORTFOLIO = {
   filters: ["All", "Video games", "Tabletop", "Game jams", "UI/UX"],
 
   // category = label on the picture. image = screenshot path, e.g.
-  // "images/halt-the-horde.png" ("" shows the coloured placeholder).
+  // "images/HaltTheHorde.png" ("" shows the coloured placeholder).
+  // fit: "cover" fills the frame (may crop edges); "contain" shows the
+  // whole picture on the card colour (good for phone mock-ups).
   // contributions = the "What I did" list (leave [] to hide it).
   // links = buttons on the card. A link with url "" is hidden, so you
   // can fill in the url later and it appears.
@@ -110,7 +113,7 @@ window.PORTFOLIO = {
         "Developed gameplay supporting different player strategies.",
       ],
       detail: "",
-      image: "",
+      image: "images/HaltTheHorde.png", fit: "contain",
       links: [
         { label: "Watch trailer", url: "https://www.youtube.com/shorts/1cNqKZaaIT8" },
         { label: "Project breakdown", url: "" },
@@ -128,7 +131,7 @@ window.PORTFOLIO = {
         "Developed visual effects, interactions, and audio assets.",
       ],
       detail: "",
-      image: "",
+      image: "images/OrderNChaos.png", fit: "cover",
       links: [
         { label: "Play demo", url: "" },
         { label: "Project breakdown", url: "" },
@@ -143,7 +146,7 @@ window.PORTFOLIO = {
       // progression; how gameplay supports the narrative and exploration.
       contributions: [],
       detail: "",
-      image: "",
+      image: "images/Possessor.png", fit: "cover",
       links: [
         { label: "Play demo", url: "" },
         { label: "Project breakdown", url: "" },
@@ -160,7 +163,7 @@ window.PORTFOLIO = {
         "Developed strategic choices around resource collection and deck building.",
       ],
       detail: "",
-      image: "",
+      image: "images/PawsToPet.png", fit: "cover",
       links: [
         { label: "Project breakdown", url: "" },
       ]},
@@ -171,7 +174,7 @@ window.PORTFOLIO = {
       tags: ["Social Deduction", "Deception", "Game Jam"],
       contributions: [],
       detail: "Created for Brackeys Game Jam 2025.2, themed \u201cRisk it for the Biscuit.\u201d",
-      image: "",
+      image: "images/Riskcuit.png", fit: "cover",
       links: [
         { label: "Play game", url: "https://saka0na.itch.io/riskcuit" },
         { label: "Project breakdown", url: "" },
@@ -188,7 +191,7 @@ window.PORTFOLIO = {
         "Focused on usability and intuitive interactions to simplify the customer ordering journey.",
       ],
       detail: "",
-      image: "",
+      image: "images/CloudyStack.png", fit: "contain",
       links: [
         { label: "Interactive prototype", url: "" },
         { label: "Project breakdown", url: "" },
