@@ -17,45 +17,73 @@ window.PORTFOLIO = {
   ],
 
   // Small grey note under the hero. Set to "" once your real text is in.
-  sampleNote: "Sample text — replace it in content.js.",
+  sampleNote: "",
 
 
   // ---------- SECTION 2: SOFTWARE ----------
-  // icon = the picture's path in the images folder. File names must match
-  // exactly (capitals and .png/.jpg/.webp included). If a picture is
-  // missing, the tile shows the short abbr label in the colour instead.
-  // group = small heading above a row of tiles ("" for no heading).
+  // Grouped by skill. icon = the picture's path in the images folder.
+  // File names must match exactly (capitals and .png/.jpg/.webp included).
+  // If a picture is missing, the tile shows the abbr label in the colour.
   tools: [
-    { group: "", items: [
-      { name: "Unity",                abbr: "U",  color: "#15172d", icon: "images/unity.png" },
-      { name: "Adobe XD",             abbr: "Xd", color: "#470137", icon: "images/adobexd.png" },
-      { name: "Adobe Illustrator",    abbr: "Ai", color: "#330000", icon: "images/adobeillustrator.png" },
-      { name: "Adobe Photoshop",      abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png" },
-      { name: "Adobe Premiere",       abbr: "Pr", color: "#00005b", icon: "images/adobepremiere.webp" },
-      { name: "Adobe After Effects",  abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
-      { name: "Aseprite",             abbr: "As", color: "#7d929e", icon: "images/aseprite.png" },
-      { name: "Autodesk Maya",        abbr: "M",  color: "#1ba6a6", icon: "images/maya.png" },
-      { name: "Blender",              abbr: "Bl", color: "#e87d0d", icon: "images/blender.webp" },
-      { name: "Figma",                abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
+    { group: "Game development", items: [
+      { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png" },
+    ]},
+    { group: "UI/UX design", items: [
+      { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
+      { name: "Adobe XD",            abbr: "Xd", color: "#470137", icon: "images/adobexd.png" },
+    ]},
+    { group: "2D art", items: [
+      { name: "Adobe Photoshop",     abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png" },
+      { name: "Adobe Illustrator",   abbr: "Ai", color: "#330000", icon: "images/adobeillustrator.png" },
+      { name: "Aseprite",            abbr: "As", color: "#7d929e", icon: "images/aseprite.png" },
+    ]},
+    { group: "3D art", items: [
+      { name: "Blender",             abbr: "Bl", color: "#e87d0d", icon: "images/blender.png" },
+      { name: "Autodesk Maya",       abbr: "M",  color: "#1ba6a6", icon: "images/maya.png" },
+    ]},
+    { group: "Video & motion", items: [
+      { name: "Adobe Premiere",      abbr: "Pr", color: "#00005b", icon: "images/adobepremiere.webp" },
+      { name: "Adobe After Effects", abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
+    ]},
+    { group: "Audio", items: [
+      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "images/ableton.png" },
+      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "images/audacity.png" },
     ]},
   ],
 
 
-  // ---------- SECTION 2: LEADERSHIP & PROJECTS ----------
-  // icon can be: "flag", "bolt", "team" or "star"
+  // ---------- SECTION 2: LEADERSHIP & EXPERIENCE ----------
+  // tag = optional short highlight shown beside the title ("" to hide).
+  // icon can be: clipboard, gamepad, music, code, bug, camera, layout,
+  //              brush, flag, calendar, team, bolt, star
+  experienceTitle: "Leadership & experience",
   experience: [
-    { title: "Team lead", org: "Capstone project, 6-person team", time: "2025 – 2026",
-      icon: "flag", color: "#ff5d5d",
-      text: "Ran weekly sprints, kept the scope realistic and owned the core gameplay loop." },
-    { title: "Design lead", org: "48-hour game jam", time: "2025",
-      icon: "bolt", color: "#2f5bff",
-      text: "Pitched the concept, wrote the one-page design doc and organised playtests on day two." },
-    { title: "President", org: "Game development club", time: "2024 – 2025",
-      icon: "team", color: "#2ec4a6",
-      text: "Organised monthly workshops and a showcase night for members' projects." },
-    { title: "Level designer", org: "Indie studio internship", time: "2024",
-      icon: "star", color: "#8a6cff",
-      text: "Blocked out and iterated on levels using player heatmaps and feedback." },
+    { group: "Leading teams", items: [
+      { title: "Project Management", tag: "30+ projects", icon: "clipboard", color: "#ff5d5d",
+        text: "Led and managed 30+ academic projects, delegating tasks according to teammates' strengths, coordinating workflows, and ensuring deliverables were completed on schedule." },
+      { title: "Leadership", tag: "2 years", icon: "flag", color: "#ff5d5d",
+        text: "Two years as a student leader of the Gamers' Guild at SIT–DigiPen, alongside previous experience as a class leader at Temasek Polytechnic. Experienced in representing students, coordinating activities, and fostering collaborative communities." },
+      { title: "Event Planning & Facilitation", tag: "", icon: "calendar", color: "#ff5d5d",
+        text: "Organized and hosted gaming activities for Temasek Polytechnic's Campus Care Network (CCN) and SIT's Gamers' Guild, including competitive FPS and fighting game events, as well as introductory trading card game sessions." },
+    ]},
+    { group: "Design", items: [
+      { title: "Game Design", tag: "10+ games", icon: "gamepad", color: "#2f5bff",
+        text: "Designed 10+ games across PC, mobile, and tabletop platforms, spanning various genres. Experienced in gameplay mechanics, systems design, level design, progression, and balancing." },
+      { title: "UI/UX Design & Prototyping", tag: "", icon: "layout", color: "#2f5bff",
+        text: "Experienced in Figma and Adobe XD, creating wireframes, interactive prototypes, and user flows to evaluate and refine experiences before development." },
+    ]},
+    { group: "Production & craft", items: [
+      { title: "2D & 3D Art", tag: "", icon: "brush", color: "#8a6cff",
+        text: "Skilled in Photoshop, Illustrator, and Aseprite for 2D art, sprites, and icons. Experienced in Blender and Maya for 3D modelling, modular workflows, and texturing." },
+      { title: "Audio Production", tag: "", icon: "music", color: "#8a6cff",
+        text: "Experienced in recording, editing, and mixing sound effects, as well as composing music for game projects." },
+      { title: "Media Production", tag: "2 years", icon: "camera", color: "#8a6cff",
+        text: "Two years as a primary photographer with the Singapore Combat Engineers. Experienced in event photography, Lightroom photo editing, and Adobe Premiere Pro video production." },
+      { title: "Programming", tag: "C#", icon: "code", color: "#2ec4a6",
+        text: "Proficient in C# with a practical understanding of programming concepts, enabling effective technical communication, prototyping, and collaboration with developers." },
+      { title: "Quality Assurance", tag: "Industry", icon: "bug", color: "#2ec4a6",
+        text: "Professional game QA experience at I Got Games Singapore, conducting gameplay testing and documenting issues through structured test cases and clear, actionable bug reports." },
+    ]},
   ],
 
 
