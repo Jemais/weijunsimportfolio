@@ -25,10 +25,11 @@ window.PORTFOLIO = {
   // Grouped by skill. icon = the picture's path in the images folder.
   // File names must match exactly (capitals and .png/.jpg/.webp included).
   // If a picture is missing, the tile shows the abbr label in the colour.
+  // padding: true adds white space around a logo that touches its edges.
   tools: [
     { group: "Game development", items: [
       { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png" },
-      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unreal.png" },
+      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unreal.png", padding: true },
     ]},
     { group: "UI/UX design", items: [
       { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
@@ -48,8 +49,8 @@ window.PORTFOLIO = {
       { name: "Adobe After Effects", abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
     ]},
     { group: "Audio", items: [
-      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "ableton.png" },
-      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "audacity.png" },
+      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "images/ableton.png" },
+      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "images/audacity.png" },
     ]},
   ],
 

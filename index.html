@@ -80,13 +80,14 @@ nav ul a:hover,nav ul a:focus-visible{background:var(--soft)}
 .group{margin-top:18px}
 .group>p{margin:0 0 10px;font-weight:800;font-size:14px;color:var(--mute)}
 .slots{display:flex;flex-wrap:wrap;gap:12px}
-.slot{width:108px}
+.slot{width:108px;height:128px;align-content:start}
 .slot{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 6px 10px;display:grid;justify-items:center;gap:8px;text-align:center;transition:transform .15s,border-color .15s}
 .slot:hover{transform:translateY(-3px);border-color:var(--c)}
 .ico{width:56px;height:56px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;font:700 18px Fredoka,sans-serif;box-shadow:inset 0 -4px 0 rgb(0 0 0/.18)}
 .ico img{width:100%;height:100%;object-fit:contain}
-.ico.pic{background:none;box-shadow:none;border-radius:12px;overflow:hidden}
-.slot span{font-size:13px;font-weight:700;line-height:1.25}
+.ico.pic{background:none;box-shadow:none;border-radius:12px;overflow:hidden;flex:none}
+.ico.pic.pad{background:#fff;padding:7px;border:1px solid #e3e6f3}
+.slot span{font-size:13px;font-weight:700;line-height:1.25;display:flex;align-items:center;min-height:2.5em}
 .xgroup{margin-top:20px}
 .xgroup>p{margin:0 0 10px;font-weight:800;font-size:14px;color:var(--mute)}
 .quests{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:14px}
@@ -262,7 +263,7 @@ $('#stats').innerHTML = (C.stats || []).map(s => `<li><small>${esc(s.label)}</sm
 // tools
 $('#tools').innerHTML = (C.tools || []).map(g => `<div class="group">${g.group ? `<p>${esc(g.group)}</p>` : ''}<div class="slots">${
   (g.items || []).map(t => `<div class="slot" style="--c:${esc(t.color)}">${t.icon
-    ? `<div class="ico pic"><img src="${esc(t.icon)}" alt="" data-abbr="${esc(t.abbr)}"></div>`
+    ? `<div class="ico pic${t.padding ? ' pad' : ''}"><img src="${esc(t.icon)}" alt="" data-abbr="${esc(t.abbr)}"></div>`
     : `<div class="ico">${esc(t.abbr)}</div>`}<span>${esc(t.name)}</span></div>`).join('')
 }</div></div>`).join('');
 
