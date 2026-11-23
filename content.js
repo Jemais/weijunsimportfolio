@@ -2,10 +2,10 @@ window.PORTFOLIO = {
 
   // ---------- SECTION 1: ABOUT ME ----------
   name: "Sim Wei Jun",
-  initial: "W",                       
-  title: "Game Designer",             
+  initial: "W",                       // letter in the little logo, top left
+  title: "Game Designer",             // shown on your profile card
   photo: "images/profilephoto.png",
-  photoPosition: "58% 35%",          
+  photoPosition: "58% 35%",          // which part of the photo stays in view (left-right, top-bottom)
   greeting: "Hi, I'm Wei Jun.",
   headline: "I turn dreams into reality with design",
   bio: "Trained at DigiPen Institute of Technology Singapore, I am a versatile game and UX designer who enjoys wearing multiple hats. While my core strengths lie in game design and project management, I am equally comfortable in various disciplines of art, programming, design and music. I thrive on bridging creativity and execution, turning ambitious ideas into achievable, polished experiences through thoughtful design and iteration.",
