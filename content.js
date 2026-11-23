@@ -28,7 +28,7 @@ window.PORTFOLIO = {
   tools: [
     { group: "Game development", items: [
       { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png" },
-      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unrealengine.png" },
+      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unreal.png" },
     ]},
     { group: "UI/UX design", items: [
       { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
@@ -142,10 +142,12 @@ window.PORTFOLIO = {
       role: "Game Project", team: "Team of 5",
       pitch: "A top-down puzzle adventure where a disembodied spirit possesses household objects to navigate a warped home, solve environmental puzzles, and uncover forgotten memories.",
       tags: ["Puzzle", "Adventure", "Narrative"],
-      // Notes for the breakdown (not shown on the site): focus on the
-      // object-possession mechanic; environmental puzzle design and player
-      // progression; how gameplay supports the narrative and exploration.
-      contributions: [],
+      contributions: [
+        "Designed the game's levels.",
+        "Designed the core game mechanics and relayed them to the artists.",
+        "Edited the game's videos.",
+        "Wrote the project documentation.",
+      ],
       detail: "",
       image: "images/Possessor.png", fit: "cover",
       links: [
@@ -173,7 +175,11 @@ window.PORTFOLIO = {
       role: "Game Jam Participant", team: "Team of 5",
       pitch: "A social deduction game where you play a seemingly innocent cookie baker secretly poisoning villagers. Balance risk and deception as you try to eliminate the village without being exposed.",
       tags: ["Social Deduction", "Deception", "Game Jam"],
-      contributions: [],
+      contributions: [
+        "Led the main game design and core mechanics.",
+        "Wrote the game's scenario.",
+        "Balanced the game.",
+      ],
       detail: "Created for Brackeys Game Jam 2025.2, themed \u201cRisk it for the Biscuit.\u201d",
       image: "images/Riskcuit.png", fit: "cover",
       links: [
