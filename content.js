@@ -206,7 +206,9 @@ window.PORTFOLIO = {
       role: "", team: "",
       pitch: "The Ana Game is an anagram word puzzle game where mysterious anagrams float on top of objects. Swap them and solve the anagrams by looking at the environment for clues!",
       tags: ["Puzzle", "Word Game"],
-      contributions: [],
+      contributions: [
+          "Solo developed with inspiration from games such as Zero Escape: Virtue's Last Reward's anagrams and Wordle's UI design",
+      ],
       detail: "",
       image: "images/The Ana Game.png", fit: "cover",
       links: [
