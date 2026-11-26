@@ -210,7 +210,7 @@ window.PORTFOLIO = {
       detail: "",
       image: "images/The Ana Game.png", fit: "cover",
       links: [
-        { label: "Play in browser", url: "" },
+        { label: "Play in browser", url: "https://lishie.itch.io/theanagame" },
         { label: "Project breakdown", url: "" },
       ]},
   ],
