@@ -26,31 +26,45 @@ window.PORTFOLIO = {
   // File names must match exactly (capitals and .png/.jpg/.webp included).
   // If a picture is missing, the tile shows the abbr label in the colour.
   // padding: true adds white space around a logo that touches its edges.
+  // url = the page the tile opens when clicked ("" for no link).
   tools: [
     { group: "Game development", items: [
-      { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png" },
-      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unreal.png", padding: true },
+      { name: "Unity",               abbr: "U",  color: "#15172d", icon: "images/unity.png",
+        url: "https://unity.com" },
+      { name: "Unreal Engine",       abbr: "UE", color: "#15172d", icon: "images/unreal.png", padding: true,
+        url: "https://www.unrealengine.com" },
     ]},
     { group: "UI/UX design", items: [
-      { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png" },
-      { name: "Adobe XD",            abbr: "Xd", color: "#470137", icon: "images/adobexd.png" },
+      { name: "Figma",               abbr: "Fi", color: "#15172d", icon: "images/unnamed.png",
+        url: "https://www.figma.com" },
+      { name: "Adobe XD",            abbr: "Xd", color: "#470137", icon: "images/adobexd.png",
+        url: "https://www.adobe.com/products/xd.html" },
     ]},
     { group: "2D art", items: [
-      { name: "Adobe Photoshop",     abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png" },
-      { name: "Adobe Illustrator",   abbr: "Ai", color: "#330000", icon: "images/illustrator.png" },
-      { name: "Aseprite",            abbr: "As", color: "#7d929e", icon: "images/aseprite.png" },
+      { name: "Adobe Photoshop",     abbr: "Ps", color: "#001e36", icon: "images/adobephotoshop.png",
+        url: "https://www.adobe.com/products/photoshop.html" },
+      { name: "Adobe Illustrator",   abbr: "Ai", color: "#330000", icon: "images/illustrator.png",
+        url: "https://www.adobe.com/products/illustrator.html" },
+      { name: "Aseprite",            abbr: "As", color: "#7d929e", icon: "images/aseprite.png",
+        url: "https://www.aseprite.org" },
     ]},
     { group: "3D art", items: [
-      { name: "Blender",             abbr: "Bl", color: "#e87d0d", icon: "images/blender.png" },
-      { name: "Autodesk Maya",       abbr: "M",  color: "#1ba6a6", icon: "images/maya.png" },
+      { name: "Blender",             abbr: "Bl", color: "#e87d0d", icon: "images/blender.png",
+        url: "https://www.blender.org" },
+      { name: "Autodesk Maya",       abbr: "M",  color: "#1ba6a6", icon: "images/maya.png",
+        url: "https://www.autodesk.com/products/maya/overview" },
     ]},
     { group: "Video & motion", items: [
-      { name: "Adobe Premiere",      abbr: "Pr", color: "#00005b", icon: "images/adobepremiere.webp" },
-      { name: "Adobe After Effects", abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp" },
+      { name: "Adobe Premiere",      abbr: "Pr", color: "#00005b", icon: "images/adobepremiere.webp",
+        url: "https://www.adobe.com/products/premiere.html" },
+      { name: "Adobe After Effects", abbr: "Ae", color: "#00005b", icon: "images/Adobe_After_Effects_CC_2026_icon.svg.webp",
+        url: "https://www.adobe.com/products/aftereffects.html" },
     ]},
     { group: "Audio", items: [
-      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "images/ableton.png" },
-      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "images/audacity.png" },
+      { name: "Ableton Live",        abbr: "Ab", color: "#15172d", icon: "images/ableton.png",
+        url: "https://www.ableton.com/en/live/" },
+      { name: "Audacity",            abbr: "Au", color: "#0b3fd1", icon: "images/audacity.png",
+        url: "https://www.audacityteam.org" },
     ]},
   ],
 
@@ -93,7 +107,7 @@ window.PORTFOLIO = {
   // ---------- SECTION 3: GAMES & PROJECTS ----------
   // The filter buttons. Each project's "type" must match one of these
   // (except "All", which shows everything).
-  filters: ["All", "Video games", "Tabletop", "Game jams", "UI/UX"],
+  filters: ["All", "Video games", "Tabletop", "Game jams"],
 
   // category = label on the picture. image = screenshot path, e.g.
   // "images/HaltTheHorde.png" ("" shows the coloured placeholder).
@@ -135,7 +149,7 @@ window.PORTFOLIO = {
       detail: "",
       image: "images/OrderNChaos.png", fit: "cover",
       links: [
-        { label: "Play demo", url: "https://tanukifurhire.com/" },
+        { label: "Play demo", url: "https://tanukifurhire.com/work/order-n-chaos/#play" },
         { label: "Project breakdown", url: "" },
       ]},
 
@@ -188,20 +202,15 @@ window.PORTFOLIO = {
         { label: "Project breakdown", url: "" },
       ]},
 
-    { title: "Cloudy Stack", type: "UI/UX", category: "Mobile app · UI/UX", color: "#2ec4a6",
-      role: "UI/UX Designer", team: "",
-      pitch: "A modern mobile ordering app designed for a fictional pancake restaurant, combining stylish UI/UX with intuitive navigation, menu exploration, promotional offers, and a streamlined ordering experience.",
-      tags: ["Mobile App", "UI/UX", "Figma"],
-      contributions: [
-        "Designed a modern, visually appealing mobile interface targeting younger audiences.",
-        "Created interactive pages and navigation flows for a cohesive user experience.",
-        "Designed menu browsing, promotional offers, and food ordering interfaces.",
-        "Focused on usability and intuitive interactions to simplify the customer ordering journey.",
-      ],
+    { title: "The Ana Game", type: "Video games", category: "Puzzle game", color: "#2ec4a6",
+      role: "", team: "",
+      pitch: "The Ana Game is an anagram word puzzle game where mysterious anagrams float on top of objects. Swap them and solve the anagrams by looking at the environment for clues!",
+      tags: ["Puzzle", "Word Game"],
+      contributions: [],
       detail: "",
-      image: "images/CloudyStack.png", fit: "contain",
+      image: "images/The Ana Game.png", fit: "cover",
       links: [
-        { label: "Interactive prototype", url: "" },
+        { label: "Play in browser", url: "" },
         { label: "Project breakdown", url: "" },
       ]},
   ],
